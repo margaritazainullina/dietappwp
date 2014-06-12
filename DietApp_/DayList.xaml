@@ -17,26 +17,26 @@
         <Grid.Background>
             <ImageBrush ImageSource="b.jpg" Opacity="0.25"></ImageBrush>
         </Grid.Background>
-        <ListBox Name="ListboxDiet" Margin="48,14,177,380" Grid.Row="1">
-            <ListBox.Items>
-                <TextBlock Text="Понедельник" TextWrapping="NoWrap" Width="210"  />
-                <TextBlock Text="Вторник" TextWrapping="NoWrap" Width="210"  />
-                <TextBlock Text="Среда" TextWrapping="NoWrap" Width="210" />
-                <TextBlock Text="Четверг" TextWrapping="NoWrap" Width="210" />
-                <TextBlock Text="Пятница" TextWrapping="NoWrap" Width="210"  />
-                <TextBlock Text="Суббота" TextWrapping="NoWrap" Width="210" />
-                <TextBlock Text="Воскресенье" TextWrapping="NoWrap" Width="210" />
-            </ListBox.Items>
-        </ListBox>
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="Здоровое питание" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="Дни недели" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        <StackPanel x:Name="TitlePanel" Margin="12,17,12,625" Background="#23FFFFFF">
+            <TextBlock x:Name="ApplicationTitle" Text="Здоровое питание" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#FFDA86FF" />
+            <TextBlock x:Name="PageTitle" Text="Дни недели" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FFDA86FF" />
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Margin="12,149,12,12" Grid.RowSpan="2">
-            <Button Content="Выбрать" Height="72" HorizontalAlignment="Left" Margin="36,245,0,0" Name="button1" VerticalAlignment="Top" Width="160" />
+            <Button Content="Выбрать" Height="72" HorizontalAlignment="Left" Margin="36,242,0,0" Name="button1" VerticalAlignment="Top" Width="160" />
+            <ListBox Name="ListboxDiet" Margin="36,26,12,392">
+                <ListBox.Items>
+                    <TextBlock Text="Понедельник" TextWrapping="NoWrap" Width="210" />
+                    <TextBlock Text="Вторник" TextWrapping="NoWrap" Width="210" />
+                    <TextBlock Text="Среда" TextWrapping="NoWrap" Width="210" />
+                    <TextBlock Text="Четверг" TextWrapping="NoWrap" Width="210" />
+                    <TextBlock Text="Пятница" TextWrapping="NoWrap" Width="210" />
+                    <TextBlock Text="Суббота" TextWrapping="NoWrap" Width="210" />
+                    <TextBlock Text="Воскресенье" TextWrapping="NoWrap" Width="210" />
+                </ListBox.Items>
+            </ListBox>
         </Grid>
     </Grid>
 

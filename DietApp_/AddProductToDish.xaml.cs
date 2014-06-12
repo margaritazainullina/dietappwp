@@ -15,7 +15,9 @@ namespace DietApp
 {
     public partial class AddProductToDish : PhoneApplicationPage
     {
-            List<Product> l;
+        List<Product> l;
+       
+        int SelectedIndex = 0;
         public AddProductToDish()
         {
             InitializeComponent();
@@ -37,15 +39,27 @@ namespace DietApp
 
         private void listBox4_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int i = listBox4.SelectedIndex;
-            if (i >= 0)
+            SelectedIndex = listBox4.SelectedIndex;
+            if (SelectedIndex >= 0)
             {
-                if (l.ElementAt(i).MeasureID == 0)
-                    measureTB.Text = "г.";
-                if (l.ElementAt(i).MeasureID == 1)
-                    measureTB.Text = "шт."; 
-                if (l.ElementAt(i).MeasureID == 2)
-                    measureTB.Text = "мл.";
+                if (l.ElementAt(SelectedIndex).MeasureID == 0)
+                    measureTB.Text = " г.";
+                if (l.ElementAt(SelectedIndex).MeasureID == 1)
+                    measureTB.Text = " шт.";
+                if (l.ElementAt(SelectedIndex).MeasureID == 2)
+                    measureTB.Text = " мл.";
+            }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            using (MyDataContext Db = new MyDataContext(MainPage.strConnectionString))
+            {
+                DishProduct dp = new DishProduct() { DId = AddDish.d.DishID, Product = l[SelectedIndex], Quantity = Convert.ToInt32(textBox1.Text) };
+                Db.DishProducts.InsertOnSubmit(dp);
+                AddDish.d.DishProducts.Add(dp);
+                Db.SubmitChanges();
+                NavigationService.Navigate(new Uri("/AddDish.xaml", UriKind.Relative));
             }
         }
     }

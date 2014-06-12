@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28" Background="#23FFFFFF">
             <TextBlock x:Name="ApplicationTitle" Text="Здоровое питание" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#FFC5FF45" />
             <TextBlock x:Name="PageTitle" Text="Главная" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FFC5FF45" />
         </StackPanel>
