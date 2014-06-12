@@ -1,0 +1,55 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="DietApp.PreferenceView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ListBox Name="ListboxPreference" Margin="48,14,177,0" Grid.Row="1" Height="126" VerticalAlignment="Top">
+            <ListBox.Items>
+                <TextBlock Text="Ем все" TextWrapping="NoWrap" Width="210"  />
+                <TextBlock Text="Вегетарианец" TextWrapping="NoWrap" Width="210"  />
+                <TextBlock Text="Веган" TextWrapping="NoWrap" Width="210" />
+                <TextBlock Text="Сыроед" TextWrapping="NoWrap" Width="210" />
+            </ListBox.Items>
+        </ListBox>
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="Здоровое питание" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#FFC68BE2" />
+            <TextBlock x:Name="PageTitle" Text="Предпочтения" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Width="467" FontSize="70" AllowDrop="False" Foreground="#FFC68BE2" />
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Margin="12,149,12,12" Grid.RowSpan="2">
+            <Button Content="Выбрать" Height="72" HorizontalAlignment="Left" Margin="36,158,0,0" Name="button1" VerticalAlignment="Top" Width="160" Click="button1_Click" />
+        </Grid>
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>

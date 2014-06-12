@@ -1,0 +1,43 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="DietApp.Page3"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" >
+        <Grid.Background>
+            <ImageBrush ImageSource="b.jpg" Opacity="0.25"></ImageBrush>
+        </Grid.Background>
+        <ListBox Name="ListboxDiet" Margin="48,14,177,380" Grid.Row="1">
+            <ListBox.Items>
+                <TextBlock Text="Понедельник" TextWrapping="NoWrap" Width="210"  />
+                <TextBlock Text="Вторник" TextWrapping="NoWrap" Width="210"  />
+                <TextBlock Text="Среда" TextWrapping="NoWrap" Width="210" />
+                <TextBlock Text="Четверг" TextWrapping="NoWrap" Width="210" />
+                <TextBlock Text="Пятница" TextWrapping="NoWrap" Width="210"  />
+                <TextBlock Text="Суббота" TextWrapping="NoWrap" Width="210" />
+                <TextBlock Text="Воскресенье" TextWrapping="NoWrap" Width="210" />
+            </ListBox.Items>
+        </ListBox>
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="Здоровое питание" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="Дни недели" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Margin="12,149,12,12" Grid.RowSpan="2">
+            <Button Content="Выбрать" Height="72" HorizontalAlignment="Left" Margin="36,245,0,0" Name="button1" VerticalAlignment="Top" Width="160" />
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
