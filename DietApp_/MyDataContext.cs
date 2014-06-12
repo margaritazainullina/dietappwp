@@ -44,5 +44,13 @@ namespace DietApp
                 return this.GetTable<DishProduct>();
             }
         }
+
+        public Table<Ration> Rations
+        {
+            get
+            {
+                return this.GetTable<Ration>();
+            }
+        }
     }
 }

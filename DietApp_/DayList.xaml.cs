@@ -19,5 +19,11 @@ namespace DietApp
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Page2.dayIdx = ListboxDay.SelectedIndex;
+            NavigationService.Navigate(new Uri("/RationPage.xaml", UriKind.Relative));
+        }
     }
 }

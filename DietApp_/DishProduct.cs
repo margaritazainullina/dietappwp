@@ -31,7 +31,7 @@ namespace DietApp
             get;
             set;
         }
-         [Column(IsPrimaryKey = true)]
+        [Column(IsPrimaryKey = true)]
         public int DId
         {
             get;

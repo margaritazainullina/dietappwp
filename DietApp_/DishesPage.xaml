@@ -44,6 +44,6 @@
             <Button Content="Добавить" Height="72" HorizontalAlignment="Left" Margin="256,496,0,0" Name="button1" VerticalAlignment="Top" Width="194" Click="button1_Click" Grid.ColumnSpan="2" />
             <TextBlock Text="Порция" FontSize="26" FontWeight="Bold" Margin="200,0,144,526" />
             <ListBox HorizontalAlignment="Left" Margin="200,33,0,0" Name="listBox3" VerticalAlignment="Top" Width="113" Height="0"></ListBox>
-        </Grid>
+            </Grid>
     </Grid>
 </phone:PhoneApplicationPage>

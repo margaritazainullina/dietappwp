@@ -25,8 +25,8 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Margin="12,149,12,12" Grid.RowSpan="2">
-            <Button Content="Выбрать" Height="72" HorizontalAlignment="Left" Margin="36,242,0,0" Name="button1" VerticalAlignment="Top" Width="160" />
-            <ListBox Name="ListboxDiet" Margin="36,26,12,392">
+            <Button Content="Выбрать" Height="72" HorizontalAlignment="Left" Margin="36,242,0,0" Name="button1" VerticalAlignment="Top" Width="160" Click="button1_Click" />
+            <ListBox Name="ListboxDay" Margin="36,26,12,392">
                 <ListBox.Items>
                     <TextBlock Text="Понедельник" TextWrapping="NoWrap" Width="210" />
                     <TextBlock Text="Вторник" TextWrapping="NoWrap" Width="210" />

@@ -10,62 +10,51 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Data.Linq.Mapping;
 using System.Data.Linq;
-using System.Collections.Generic;
+using DietApp;
 
 namespace DietApp
 {
     [Table]
-    public class Dish
+    public class Ration
     {
-        public Dish() { }
-        public Dish(string name, int type, int portion, int measure)
-        {
-            Name = name;
-            Type = type;
-            Portion = portion;
-            Measure = measure;
-            DishProducts = new EntitySet<DishProduct>();
-        }
-
-        [Column(DbType = "INT NOT NULL IDENTITY", IsDbGenerated = true,
+       [Column(DbType = "INT NOT NULL IDENTITY", IsDbGenerated = true,
             IsPrimaryKey = true, AutoSync = AutoSync.OnInsert)]
-        public int DishID
+        public int RationID
         {
             get;
             set;
         }
         [Column(CanBeNull = false)]
-        public string Name
+        public string Time
         {
             get;
             set;
         }
         [Column(CanBeNull = false)]
-        public int Type
+        public int DayWeek
         {
             get;
             set;
         }
         [Column(CanBeNull = false)]
-        public int Portion
+        public int WeightDish
         {
             get;
             set;
         }
         [Column(CanBeNull = false)]
-        public int Measure
+        public int DId
         {
             get;
             set;
         }
-        
-        [Association(ThisKey = "DishID", OtherKey = "DId", Storage = "DishProducts")]
-        public EntitySet<DishProduct> DishProducts
+        private EntityRef<Dish> dish;
+        [Association(ThisKey = "DId", OtherKey = "DishID",
+            Storage = "dish", IsForeignKey = true)]
+        public Dish Dish
         {
-            get;
-            set;
+            get { return dish.Entity; }
+            set { dish.Entity = value; }
         }
-
     }
-
 }

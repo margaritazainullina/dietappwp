@@ -32,12 +32,17 @@ namespace DietApp
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Ration.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/RationPage.xaml", UriKind.Relative));
         }
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/DishesPage.xaml", UriKind.Relative));
+        }
+
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ProductList.xaml", UriKind.Relative));
         }
     }
 }

@@ -10,8 +10,6 @@ c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\
 c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\Debug\PreferenceList.g.i.cs
 c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\Debug\ProductList.g.i.cs
 c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\Debug\Profile.g.i.cs
-c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\Debug\Ration.g.i.cs
-c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\Debug\RationOptimisation.g.i.cs
 c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\Debug\Schedule.g.i.cs
 c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\Debug\DietApp_.g.resources
 c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\Bin\Debug\ApplicationIcon.png
@@ -23,3 +21,4 @@ c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\Bin\
 c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\Debug\DietApp_.dll
 c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\Debug\DietApp_.pdb
 c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\Debug\XapCacheFile.xml
+C:\Users\Margarita_\Documents\Visual Studio 2010\Projects\DietApp_\DietApp_\obj\Debug\RationPage.g.i.cs

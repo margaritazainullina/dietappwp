@@ -102,11 +102,9 @@
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ration.xaml.cs">
-      <DependentUpon>Ration.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RationOptimisation.xaml.cs">
-      <DependentUpon>RationOptimisation.xaml</DependentUpon>
+    <Compile Include="Ration.cs" />
+    <Compile Include="RationPage.xaml.cs">
+      <DependentUpon>RationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Schedule.xaml.cs">
       <DependentUpon>Schedule.xaml</DependentUpon>
@@ -161,11 +159,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ration.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="RationOptimisation.xaml">
+    <Page Include="RationPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
