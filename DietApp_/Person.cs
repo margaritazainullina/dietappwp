@@ -10,13 +10,31 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Data.Linq.Mapping;
 using System.Data.Linq;
+using DietApp_;
 
 namespace DietApp
 {
     [Table]
     public class Person
     {
-        [Column(CanBeNull = false, IsDbGenerated=true, IsPrimaryKey=true) ]
+        public Person()
+        {
+            diet = new EntityRef<Diet>();
+            Name = "";
+            Age = 0;
+            Sex = "M";
+            Height = 0;
+            Weight = 0;
+            PercentFat = 0;
+            ConstitutionId = 0;
+            HipCircumference = 0;
+            WristCircumference = 0;
+            BioAge = 0;
+            Ration = "";
+            Preference = 0;
+
+        }
+        [Column(CanBeNull = false, IsDbGenerated = true, IsPrimaryKey = true)]
         public int PersonID
         {
             get;
@@ -64,32 +82,26 @@ namespace DietApp
             get;
             set;
         }
-         [Column(CanBeNull = false)]
+        [Column(CanBeNull = false)]
         public int WaistCircumference
         {
             get;
             set;
         }
-         [Column(CanBeNull = false)]
+        [Column(CanBeNull = false)]
         public int HipCircumference
         {
             get;
             set;
         }
-         [Column(CanBeNull = false)]
+        [Column(CanBeNull = false)]
         public int WristCircumference
         {
             get;
             set;
         }
-         [Column(CanBeNull = false)]
-        public int BioAge
-        {
-            get;
-            set;
-        }
         [Column(CanBeNull = false)]
-        public string Diet
+        public int BioAge
         {
             get;
             set;
@@ -105,6 +117,20 @@ namespace DietApp
         {
             get;
             set;
+        }
+        [Column(CanBeNull = false)]
+        public int DietID
+        {
+            get;
+            set;
+        }
+        private EntityRef<Diet> diet;
+        [Association(ThisKey = "DietID", OtherKey = "DietID",
+            Storage = "diet", IsForeignKey = true)]
+        public Diet Diet
+        {
+            get { return diet.Entity; }
+            set { diet.Entity = value; }
         }
     }
 }

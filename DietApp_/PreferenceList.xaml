@@ -15,19 +15,14 @@
 
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" >
+        <Grid.Background>
+            <ImageBrush ImageSource="b.jpg" Opacity="0.25"></ImageBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ListBox Name="ListboxPreference" Margin="48,14,177,0" Grid.Row="1" Height="126" VerticalAlignment="Top">
-            <ListBox.Items>
-                <TextBlock Text="Ем все" TextWrapping="NoWrap" Width="210"  />
-                <TextBlock Text="Вегетарианец" TextWrapping="NoWrap" Width="210"  />
-                <TextBlock Text="Веган" TextWrapping="NoWrap" Width="210" />
-                <TextBlock Text="Сыроед" TextWrapping="NoWrap" Width="210" />
-            </ListBox.Items>
-        </ListBox>
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28" Background="#23FFFFFF">
             <TextBlock x:Name="ApplicationTitle" Text="Здоровое питание" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#FFC68BE2" />
@@ -36,20 +31,16 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Margin="12,149,12,12" Grid.RowSpan="2">
-            <Button Content="Выбрать" Height="72" HorizontalAlignment="Left" Margin="36,158,0,0" Name="button1" VerticalAlignment="Top" Width="160" Click="button1_Click" />
+            <Button Content="Выбрать" Height="72" HorizontalAlignment="Left" Margin="67,196,0,0" Name="button1" VerticalAlignment="Top" Width="160" Click="button1_Click" />
+            <ListBox Name="ListboxPreference" Margin="67,33,134,0" Height="128" VerticalAlignment="Top">
+                <ListBox.Items>
+                    <TextBlock Text="Ем все" TextWrapping="NoWrap" Width="210" FontSize="24" />
+                    <TextBlock Text="Вегетарианец" TextWrapping="NoWrap" Width="210" FontSize="24" />
+                    <TextBlock Text="Веган" TextWrapping="NoWrap" Width="210" FontSize="24" />
+                    <TextBlock Text="Сыроед" TextWrapping="NoWrap" Width="210" FontSize="24" />
+                </ListBox.Items>
+            </ListBox>
         </Grid>
     </Grid>
-
-    <!--Sample code showing usage of ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
 
 </phone:PhoneApplicationPage>

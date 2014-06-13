@@ -59,23 +59,53 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.cs" />
+    <Compile Include="ActionList.xaml.cs">
+      <DependentUpon>ActionList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddAction.xaml.cs">
+      <DependentUpon>AddAction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddDiet.xaml.cs">
+      <DependentUpon>AddDiet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddDish.xaml.cs">
       <DependentUpon>AddDish.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddProductToDiet.xaml.cs">
+      <DependentUpon>AddProductToDiet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddProductToDish.xaml.cs">
       <DependentUpon>AddProductToDish.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddRation.xaml.cs">
+      <DependentUpon>AddRation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddSchedule.xaml.cs">
+      <DependentUpon>AddSchedule.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DayList1.xaml.cs">
+      <DependentUpon>DayList1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DayList.xaml.cs">
       <DependentUpon>DayList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DayList2.xaml.cs">
+      <DependentUpon>DayList2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diet.cs" />
     <Compile Include="DietList.xaml.cs">
       <DependentUpon>DietList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DietProduct.cs" />
+    <Compile Include="DietProductList.xaml.cs">
+      <DependentUpon>DietProductList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dish.cs" />
     <Compile Include="DishesPage.xaml.cs">
@@ -106,6 +136,7 @@
     <Compile Include="RationPage.xaml.cs">
       <DependentUpon>RationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Schedule.cs" />
     <Compile Include="Schedule.xaml.cs">
       <DependentUpon>Schedule.xaml</DependentUpon>
     </Compile>
@@ -115,6 +146,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="ActionList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddAction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddDiet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddDish.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -123,7 +166,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="AddProductToDiet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddProductToDish.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddRation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddSchedule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DayList1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -131,9 +190,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DayList2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DietList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DietProductList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DishesPage.xaml">
       <Generator>MSBuild:Compile</Generator>

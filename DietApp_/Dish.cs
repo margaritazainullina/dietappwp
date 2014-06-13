@@ -52,13 +52,14 @@ namespace DietApp
             get;
             set;
         }
+
         [Column(CanBeNull = false)]
         public int Measure
         {
             get;
             set;
         }
-        
+
         [Association(ThisKey = "DishID", OtherKey = "DId", Storage = "DishProducts")]
         public EntitySet<DishProduct> DishProducts
         {

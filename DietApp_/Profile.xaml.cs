@@ -22,7 +22,7 @@ namespace DietApp
             InitializeComponent();
             using (MyDataContext Db = new MyDataContext(MainPage.strConnectionString))
             {
-                IQueryable<Person> PersonQuery = from Person in Db.Persons select Person;
+                IQueryable<Person> PersonQuery = from Person in Db.Persons where Person.Name != "" select Person;
                 Person p = PersonQuery.FirstOrDefault();
                 age.Text = p.Age + "";
                 name.Text = p.Name;
@@ -30,7 +30,7 @@ namespace DietApp
                 weight.Text = p.Weight + "";
                 fat.Text = p.PercentFat + "";
                 bioage.Text = p.BioAge + "";
-                if (p.Sex == "m")
+                if (p.Sex == "M")
                 {
                     M.IsChecked = true;
                     F.IsChecked = false;
@@ -51,8 +51,8 @@ namespace DietApp
                 double idealW = Math.Round(((ip.Weight_max + ip.Weight_min) / 2), 1);
                 ideal.Text = idealW + "";
 
-                if (p.Weight > ip.Weight_min) info.Text = "Вам стоит сбросить вес на " + (ip.Weight_max - p.Weight) + "кг";
-                else if (p.Weight < ip.Weight_max) info.Text = "Вам стоит набрать вес на " + (p.Weight - ip.Weight_min) + "кг";
+                if (p.Weight > ip.Weight_min) info.Text = "Вам стоит сбросить вес на " + (p.Weight - ip.Weight_max) + "кг";
+                else if (p.Weight < ip.Weight_max) info.Text = "Вам стоит набрать вес на " + (ip.Weight_min - p.Weight) + "кг";
                 else info.Text = "Ваш вес в норме";
             }
         }

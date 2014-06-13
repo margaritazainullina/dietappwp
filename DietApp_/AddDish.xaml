@@ -35,20 +35,21 @@
             <TextBox Height="72" Margin="0,6,12,529" Name="name" Width="296" HorizontalAlignment="Right" TextChanged="name_TextChanged" />
 
             <TextBlock Text="Продукт" Margin="12,141,-12,-141"></TextBlock>
-            <ListBox Margin="12,174,192,130" Name="lb1">
+            <ListBox Margin="12,174,192,180" Name="lb1">
             </ListBox>
             <TextBlock Text="Количество" Margin="270,141,-304,-141"></TextBlock>
-            <ListBox Margin="270,174,0,130"  Name="lb2" HorizontalAlignment="Left" Width="174">
+            <ListBox Margin="270,174,0,180"  Name="lb2" HorizontalAlignment="Left" Width="174">
             </ListBox>
-            <ListBox Margin="270,163,-270,-130" Name="lb3">
+            <ListBox Margin="270,163,-270,180" Name="lb3">
                 <TextBlock Text=""></TextBlock>
             </ListBox>
-            <Button Content="Добавить продукт" Height="72" HorizontalAlignment="Left" Margin="160,529,0,0" Name="button1" VerticalAlignment="Top" Width="284" Click="button1_Click" />
-            <Button Content="OK" Height="72" HorizontalAlignment="Left" Margin="9,529,0,0" Name="button2" VerticalAlignment="Top" Width="160" Click="button2_Click" />
+            <Button Content="Добавить продукт" Height="72" HorizontalAlignment="Left" Margin="2,433,0,0" Name="button1" VerticalAlignment="Top" Width="442" Click="button1_Click" />
+            <Button Content="OK" Height="72" HorizontalAlignment="Left" Margin="284,535,0,0" Name="button2" VerticalAlignment="Top" Width="160" Click="button2_Click" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,86,0,0" Name="textBlock1" Text="Порция" VerticalAlignment="Top" Width="130" />
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="24,493,0,0" Name="textBlock2" Text="Калорий за порцию: " VerticalAlignment="Top" />
-            <TextBlock Height="30" Margin="215,493,170,0" Name="textBlock3" Text="0" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="15,511,0,0" Name="textBlock2" Text="Калорий за порцию: " VerticalAlignment="Top" />
+            <TextBlock Height="30" Margin="215,511,170,0" Name="textBlock3" Text="0" VerticalAlignment="Top" />
             <TextBox Height="72" HorizontalAlignment="Right" Margin="0,65,12,0" Name="textBox1" Text="" VerticalAlignment="Top" Width="296" TextChanged="textBox1_TextChanged" />
+            <Button Content="Назад" Height="72" HorizontalAlignment="Left" Margin="2,529,0,0" Name="button3" VerticalAlignment="Top" Width="160" Click="button3_Click" />
         </Grid>
     </Grid>
 </phone:PhoneApplicationPage>

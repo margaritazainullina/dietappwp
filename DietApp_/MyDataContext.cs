@@ -1,5 +1,6 @@
 ﻿
 using System.Data.Linq;
+using DietApp_;
 
 namespace DietApp
 {
@@ -52,5 +53,33 @@ namespace DietApp
                 return this.GetTable<Ration>();
             }
         }
+        public Table<Schedule> Schedules
+        {
+            get
+            {
+                return this.GetTable<Schedule>();
+            }
+        }
+        public Table<Action> Actions
+        {
+            get
+            {
+                return this.GetTable<Action>();
+            }
+        }
+        public Table<Diet> Diets
+        {
+            get
+            {
+                return this.GetTable<Diet>();
+            }
+        }
+        public Table<DietProduct> DietProducts
+        {
+            get
+            {
+                return this.GetTable<DietProduct>();
+            }
+        }      
     }
 }

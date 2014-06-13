@@ -17,14 +17,14 @@ namespace DietApp
     [Table]
     public class DishProduct
     {
-        public DishProduct() { }
+        /*public DishProduct() { }
         public DishProduct(int quantity, Product p)
         {
             Quantity = quantity;
             product.Entity = p;
             PId = p.ProductID;
         }
-
+        */
         [Column(CanBeNull = false, IsDbGenerated = true, IsPrimaryKey = true)]
         public int DPID
         {

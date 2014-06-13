@@ -17,7 +17,12 @@ namespace DietApp
     {
         public static int dayIdx = 0;
         public static Boolean x = true;
+        List<Ration> r;
         public Page2()
+        {
+            init();
+        }
+        public void init()
         {
             using (MyDataContext Db = new MyDataContext(MainPage.strConnectionString))
             {
@@ -33,7 +38,7 @@ namespace DietApp
                 if (dayIdx == 6) day.Text = "Воскресенье";
 
                 IQueryable<Ration> RationQuery = from Ration in Db.Rations where Ration.DayWeek == dayIdx select Ration;
-                List<Ration> r = RationQuery.ToList();
+                r = RationQuery.ToList();
 
                 var list1 = RationQuery.Select(s => new { s.Time }).ToList();
                 List<String> times = new List<string>();
@@ -79,7 +84,7 @@ namespace DietApp
                 listBox4.ItemsSource = calories;
                 total.Text = totalCalories + "";
 
-                IQueryable<Person> PersonQuery = from Person in Db.Persons select Person;
+                IQueryable<Person> PersonQuery = from Person in Db.Persons where Person.Name != "" select Person;
                 Person person = PersonQuery.FirstOrDefault();
                 double targetCalories = 0;
                 if (person.Sex == "M")
@@ -101,26 +106,57 @@ namespace DietApp
                 if (targetCalories > totalCalories * 1.1) textBlock5.Text = "Употребляйте больше калорий";
             }
         }
-
         private void day_SelectionChanged(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/DaysList.xaml", UriKind.Relative));
         }
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/AddActivity.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/AddRation.xaml", UriKind.Relative));
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/RationOptimisation.xaml", UriKind.Relative));
-        }
-
-        private void day_SelectionChanged_1(object sender, RoutedEventArgs e)
+                private void day_SelectionChanged_1(object sender, RoutedEventArgs e)
         {
             if (!x) { NavigationService.Navigate(new Uri("/DayList.xaml", UriKind.Relative)); }
             else
                 x = false;
+        }
+
+        private void button2_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/InfoPage.xaml", UriKind.Relative));
+        }
+
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            Ration s = null;
+            MessageBoxResult m = MessageBox.Show("Удалить?", "", MessageBoxButton.OKCancel);
+            if (m == MessageBoxResult.OK)
+            {
+                if (listBox2.SelectedIndex >= 0)
+                   s=r[listBox1.SelectedIndex];
+                else if (listBox3.SelectedIndex >= 0)
+                    s=r[listBox2.SelectedIndex];
+                else if (listBox3.SelectedIndex >= 0)
+                    s=r[listBox3.SelectedIndex];
+                else if (listBox4.SelectedIndex >= 0)
+                    s=r[listBox4.SelectedIndex];
+
+                using (MyDataContext Db = new MyDataContext(MainPage.strConnectionString))
+                {
+                    if (s != null)
+                    {
+                        var s1 = from Ration in Db.Rations
+                                 where Ration.RationID == s.RationID
+                                 select Ration;
+                        Db.Rations.DeleteOnSubmit(s1.FirstOrDefault());
+                        Db.SubmitChanges();
+                    }
+                }
+                init();
+            }
+
         }
     }
 }

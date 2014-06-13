@@ -56,11 +56,14 @@ namespace DietApp
             using (MyDataContext Db = new MyDataContext(MainPage.strConnectionString))
             {
                 DishProduct dp = new DishProduct() { DId = AddDish.d.DishID, Product = l[SelectedIndex], Quantity = Convert.ToInt32(textBox1.Text) };
-                Db.DishProducts.InsertOnSubmit(dp);
                 AddDish.d.DishProducts.Add(dp);
-                Db.SubmitChanges();
                 NavigationService.Navigate(new Uri("/AddDish.xaml", UriKind.Relative));
             }
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/AddDish.xaml", UriKind.Relative)); 
         }
     }
 }

@@ -48,7 +48,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Button Content="Добавить" Height="72" HorizontalAlignment="Left" Margin="131,496,0,0" Name="button1" VerticalAlignment="Top" Width="194" Click="button1_Click" />
+            <Button Content="Добавить" Height="72" HorizontalAlignment="Right" Margin="0,502,9,0" Name="button1" VerticalAlignment="Top" Width="178" Click="button1_Click" Grid.ColumnSpan="2" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,6,0,0" Name="textBlock1" Text="Продукт" VerticalAlignment="Top" FontWeight="Bold" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="179,6,0,0" Name="textBlock2" Text="Б." VerticalAlignment="Top" FontWeight="Bold" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="233,6,0,0" Name="textBlock3" Text="Ж." VerticalAlignment="Top" FontWeight="Bold" />
@@ -61,6 +61,8 @@
             <ListBox Height="460" HorizontalAlignment="Left" Margin="286,42,0,0" Name="listBox4" VerticalAlignment="Top" Width="50" />
             <ListBox Height="460" HorizontalAlignment="Left" Margin="341,42,0,0" Name="listBox5" VerticalAlignment="Top" Width="50" />
             <ListBox Height="460" HorizontalAlignment="Left" Margin="394,42,0,0" Name="listBox6" VerticalAlignment="Top" Width="50" />
+            <Button Content="Назад" Height="72" HorizontalAlignment="Left" Margin="0,502,0,0" Name="button2" VerticalAlignment="Top" Width="150" Click="button2_Click" />
+            <Button Content="Удалить" Height="72" HorizontalAlignment="Left" Margin="133,502,0,0" Name="button3" VerticalAlignment="Top" Width="150" Click="button3_Click" />
         </Grid>
     </Grid>
 </phone:PhoneApplicationPage>

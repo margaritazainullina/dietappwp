@@ -17,13 +17,18 @@ namespace DietApp
 {
     public partial class Dishes : PhoneApplicationPage
     {
+        List<Dish> l;
         public Dishes()
         {
             InitializeComponent();
+            init();
+        }
+        public void init()
+        {
             using (MyDataContext Db = new MyDataContext(MainPage.strConnectionString))
             {
                 IQueryable<Dish> DishesQuery = from Dish in Db.Dishes select Dish;
-                List<Dish> l = DishesQuery.ToList();
+                l = DishesQuery.ToList();
                 var list = DishesQuery.Select(s => new { s.Name }).ToList();
                 List<String> names = new List<string>();
                 foreach (var s in list)
@@ -54,19 +59,72 @@ namespace DietApp
                         Product p = dp.Product;
                         calory += p.Calories * dp.Quantity;
                     }
-                    calory /= dish.Portion;
+                    if (dish.Portion!=0) calory /= dish.Portion;
                     calories.Add(calory);
                 }
 
-                listBox2.ItemsSource = names;
-                listBox3.ItemsSource = portions;
-                listBox4.ItemsSource = calories;
+                listBox1.ItemsSource = names;
+                listBox2.ItemsSource = portions;
+                listBox3.ItemsSource = calories;
             }
         }
-
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/AddDish.xaml", UriKind.Relative));
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/InfoPage.xaml", UriKind.Relative));
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult m = MessageBox.Show("Удалить?", "", MessageBoxButton.OKCancel);
+            if (m == MessageBoxResult.OK)
+            {
+                Dish s = null;
+
+                if (listBox2.SelectedIndex >= 0)
+                    s = l[listBox2.SelectedIndex];
+                else if (listBox3.SelectedIndex >= 0)
+                    s = l[listBox3.SelectedIndex];
+                else if (listBox1.SelectedIndex >= 0)
+                    s = l[listBox1.SelectedIndex];
+                using (MyDataContext Db = new MyDataContext(MainPage.strConnectionString))
+                {
+                    if (s != null)
+                    {
+                        var s3 = from DishProduct in Db.DishProducts
+                                 where DishProduct.DId == s.DishID
+                                 select DishProduct;
+
+                        List<DishProduct> dp = s3.ToList();
+                        Db.DishProducts.DeleteAllOnSubmit(dp);
+                        Db.SubmitChanges();
+
+                        var s4 = from Ration in Db.Rations
+                                 where Ration.Dish.DishID == s.DishID
+                                 select Ration;
+
+                        List<Ration> rp = s4.ToList();
+                        Db.Rations.DeleteAllOnSubmit(rp);
+                        Db.SubmitChanges();
+
+                        var s1 = from Dish in Db.Dishes
+                                 where Dish.DishID == s.DishID
+                                 select Dish;
+                        Db.Dishes.DeleteOnSubmit(s1.FirstOrDefault());
+                        Db.SubmitChanges();
+                    }
+                }
+                init();
+            }
+        }
+
+        private void listBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

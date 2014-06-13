@@ -26,6 +26,7 @@ namespace DietApp
             var v = ListboxPreference.SelectedItem;
             TextBlock s = v as TextBlock;
             MainPage.preference_ = s.Text;
+            MainPage.pref = ListboxPreference.SelectedIndex;
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
     }

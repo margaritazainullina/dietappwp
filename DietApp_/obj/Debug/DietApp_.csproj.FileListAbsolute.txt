@@ -22,3 +22,12 @@ c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\
 c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\Debug\DietApp_.pdb
 c:\users\margarita_\documents\visual studio 2010\Projects\DietApp_\DietApp_\obj\Debug\XapCacheFile.xml
 C:\Users\Margarita_\Documents\Visual Studio 2010\Projects\DietApp_\DietApp_\obj\Debug\RationPage.g.i.cs
+C:\Users\Margarita_\Documents\Visual Studio 2010\Projects\DietApp_\DietApp_\obj\Debug\DayList1.g.i.cs
+C:\Users\Margarita_\Documents\Visual Studio 2010\Projects\DietApp_\DietApp_\obj\Debug\ActionList.g.i.cs
+C:\Users\Margarita_\Documents\Visual Studio 2010\Projects\DietApp_\DietApp_\obj\Debug\AddAction.g.i.cs
+C:\Users\Margarita_\Documents\Visual Studio 2010\Projects\DietApp_\DietApp_\obj\Debug\AddSchedule.g.i.cs
+C:\Users\Margarita_\Documents\Visual Studio 2010\Projects\DietApp_\DietApp_\obj\Debug\DayList2.g.i.cs
+C:\Users\Margarita_\Documents\Visual Studio 2010\Projects\DietApp_\DietApp_\obj\Debug\DietProductList.g.i.cs
+C:\Users\Margarita_\Documents\Visual Studio 2010\Projects\DietApp_\DietApp_\obj\Debug\AddDiet.g.i.cs
+C:\Users\Margarita_\Documents\Visual Studio 2010\Projects\DietApp_\DietApp_\obj\Debug\AddProductToDiet.g.i.cs
+C:\Users\Margarita_\Documents\Visual Studio 2010\Projects\DietApp_\DietApp_\obj\Debug\AddRation.g.i.cs

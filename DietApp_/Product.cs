@@ -35,10 +35,17 @@ namespace DietApp
             //1 - шт.
             //2 - мл.
             MeasureID = measureId;
+            DietId = 0;
         }
 
         [Column(CanBeNull = false, IsDbGenerated = true, IsPrimaryKey = true)]
         public int ProductID
+        {
+            get;
+            set;
+        }
+        [Column]
+        public int DietId
         {
             get;
             set;
@@ -97,5 +104,6 @@ namespace DietApp
             get;
             set;
         }
+
     }
 }

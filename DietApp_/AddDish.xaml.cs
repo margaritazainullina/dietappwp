@@ -18,31 +18,26 @@ namespace DietApp
         public static Dish d;
         public static Boolean a = true;
         public static int dishId = 0;
-       
+        public static String name1;
+        public static int portion1;
+
         public AddDish()
         {
             InitializeComponent();
             if (a)
             {
-                d = new Dish();
-                using (MyDataContext Db = new MyDataContext(MainPage.strConnectionString))
-                {
-                    d.Name = "";
-                    d.DishProducts = new System.Data.Linq.EntitySet<DishProduct>();
-                    Db.Dishes.InsertOnSubmit(d);
-                    Db.SubmitChanges();
-                    dishId = (from Dish in Db.Dishes select Dish).Count();
-                }
+                d = new Dish() { Name = "", Portion = 0 };
+                d.DishProducts = new System.Data.Linq.EntitySet<DishProduct>();
                 a = false;
+                name1 = "";
+                portion1 = 0;
             }
             else
             {
-                name.Text = d.Name;
-                textBox1.Text = d.Portion + "";
+                name.Text = name1;
+                textBox1.Text = portion1 + "";
                 using (MyDataContext Db = new MyDataContext(MainPage.strConnectionString))
                 {
-                    IQueryable<Dish> q = from Dish in Db.Dishes where Dish.DishID == dishId select Dish;
-                    d = q.FirstOrDefault();
 
                     var list1 = d.DishProducts.ToList();
                     var list2 = d.DishProducts.Select(s => new { s.Quantity, s.Product.MeasureID }).ToList();
@@ -58,7 +53,7 @@ namespace DietApp
                             ss = s.Quantity + " мл.";
                         ll.Add(ss);
                     }
-                    var list3 = d.DishProducts.Select(s => new { s.Product.Name}).ToList();
+                    var list3 = d.DishProducts.Select(s => new { s.Product.Name }).ToList();
                     List<String> list4 = new List<string>();
                     foreach (var s in list3)
                     {
@@ -77,8 +72,9 @@ namespace DietApp
                         Product p = dp.Product;
                         calory += p.Calories * dp.Quantity;
                     }
-                    calory /= d.Portion;
-                    textBlock3.Text = calory+"";
+                    if (d.Portion != 0)
+                        calory /= d.Portion;
+                    textBlock3.Text = calory + "";
                 }
             }
         }
@@ -92,39 +88,53 @@ namespace DietApp
         {
             using (MyDataContext Db = new MyDataContext(MainPage.strConnectionString))
             {
-                IQueryable<Dish> q = from Dish in Db.Dishes where Dish.DishID == dishId select Dish;
-                d = q.FirstOrDefault();
-                d.Name = name.Text; 
-                d.Portion = Convert.ToInt32(textBox1.Text);
+                Dish d1 = new Dish(name1, d.Type, portion1, d.Measure);
+                Db.Dishes.InsertOnSubmit(d1);
                 Db.SubmitChanges();
+                foreach (DishProduct dpr in d.DishProducts)
+                {
+                    dpr.DId = d1.DishID;
+                    Db.DishProducts.InsertOnSubmit(dpr);
+                    d1.DishProducts.Add(dpr);
+                    Db.SubmitChanges();
+                }
+
                 NavigationService.Navigate(new Uri("/InfoPage.xaml", UriKind.Relative));
             }
         }
 
-       
+
         private void name_TextChanged(object sender, TextChangedEventArgs e)
         {
-            using (MyDataContext Db = new MyDataContext(MainPage.strConnectionString))
-            {
-                IQueryable<Dish> q = from Dish in Db.Dishes where Dish.DishID == dishId select Dish;
-                d = q.FirstOrDefault();
-                d.Name = name.Text;
-                Db.SubmitChanges();
-            }
+            name1 = name.Text;
         }
 
-     
+
         private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
-            using (MyDataContext Db = new MyDataContext(MainPage.strConnectionString))
+            try
             {
-                IQueryable<Dish> q = from Dish in Db.Dishes where Dish.DishID == dishId select Dish;
-                d = q.FirstOrDefault();
-                d.Portion = Convert.ToInt32(textBox1.Text);
-                Db.SubmitChanges();
+                portion1 = Convert.ToInt32(textBox1.Text);
             }
+            catch { d.Portion = 0; }
+
+            int calory = 0;
+            List<DishProduct> dps = d.DishProducts.ToList();
+            foreach (DishProduct dp in dps)
+            {
+                Product p = dp.Product;
+                calory += p.Calories * dp.Quantity;
+            }
+            if (portion1 != 0)
+                calory /= portion1;
+            textBlock3.Text = calory + "";
         }
 
-      
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/InfoPage.xaml", UriKind.Relative));
+        }
+
+
     }
 }

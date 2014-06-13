@@ -33,5 +33,10 @@ namespace DietApp
             }
         }
 
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ProductList.xaml", UriKind.Relative)); 
+        }
+
     }
 }
